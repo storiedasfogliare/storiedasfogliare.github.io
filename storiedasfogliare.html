@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storie da sfogliare — Albi illustrati di Cristiana Filipponi</title>
+<meta name="description" content="Albi illustrati per bambini dai 4 agli 8 anni, scritti da Cristiana Filipponi: storie che attraversano le domande grandi con delicatezza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE7DA;
+    --paper-deep: #E2DAC8;
+    --ink: #2B2620;
+    --ink-soft: #5B5344;
+    --teal: #33503F;
+    --teal-deep: #223328;
+    --taupe: #C9BFA8;
+    --ochre: #B9832F;
+    --dust-blue: #5F7F91;
+    --rose: #A85F6C;
+    --sage: #6E7A56;
+    --radius: 2px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Archivo', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  a{ color: inherit; }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position: sticky; top:0; z-index: 20;
+    background: rgba(237,231,218,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--taupe);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top: 16px; padding-bottom: 16px;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+    letter-spacing: -0.01em;
+  }
+  .wordmark span{ color: var(--teal); font-style: italic; font-weight: 500; }
+  nav ul{
+    list-style:none; display:flex; gap: 28px; margin:0; padding:0;
+    font-family:'IBM Plex Mono', monospace; font-size: 0.75rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  nav ul a{ text-decoration:none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  nav ul a:hover{ border-color: var(--teal); }
+  .nav-toggle{ display:none; }
+
+  /* ---------- PAGE-FAN SIGNATURE ---------- */
+  .fan{
+    display:block; width:100%; height:auto;
+  }
+  .fan-divider{
+    width:100%; overflow:hidden; line-height:0;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 72px 0 40px;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size: clamp(2.1rem, 4vw, 3.1rem);
+    line-height: 1.12;
+    margin: 14px 0 22px;
+  }
+  .hero p.lede{
+    max-width: 46ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+  .hero-actions{ margin-top: 30px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 12px 22px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    letter-spacing:0.06em; text-transform: uppercase;
+    background: var(--teal); color: var(--paper);
+    text-decoration:none; border-radius: var(--radius);
+    border: 1px solid var(--teal);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:hover{ background: var(--teal-deep); transform: translateY(-1px); }
+  .btn.ghost{
+    background: transparent; color: var(--ink); border-color: var(--ink);
+  }
+  .btn.ghost:hover{ background: var(--ink); color: var(--paper); }
+
+  .hero-art{ position:relative; }
+  .hero-art svg{ width:100%; height:auto; }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: 64px 0; }
+  section h2{
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    margin-bottom: 6px;
+  }
+  .section-head{ margin-bottom: 40px; }
+  .section-head .eyebrow{ margin-bottom: 10px; display:block; }
+
+  /* ---------- CHI SONO ---------- */
+  .about{
+    display:grid; grid-template-columns: 220px 1fr; gap: 48px; align-items:start;
+  }
+  .about-mark{
+    font-family:'Fraunces', serif; font-style:italic; font-size:5.4rem;
+    color: var(--taupe); line-height:1; user-select:none;
+  }
+  .about blockquote{
+    margin: 22px 0 0; padding-left: 20px; border-left: 2px solid var(--teal);
+    font-family:'Fraunces', serif; font-style:italic; font-size:1.2rem;
+    color: var(--teal-deep);
+  }
+  .about p{ max-width: 62ch; }
+
+  /* ---------- LIBRI ---------- */
+  .books-grid{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 26px;
+  }
+  .book-card{
+    position: relative;
+    background: var(--paper-deep);
+    border: 1px solid var(--taupe);
+    border-top: 4px solid var(--accent, var(--teal));
+    padding: 26px 26px 22px;
+    display:flex; flex-direction:column; gap:12px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    overflow: hidden;
+  }
+  .book-card::after{
+    content:"";
+    position:absolute; right:0; bottom:0;
+    width:0; height:0;
+    border-style:solid;
+    border-width: 0 0 26px 26px;
+    border-color: transparent transparent var(--paper) transparent;
+    filter: drop-shadow(-1px -1px 1px rgba(0,0,0,0.08));
+    transition: border-width 0.18s ease;
+  }
+  .book-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(43,38,32,0.12);
+  }
+  .book-card:hover::after{ border-width: 0 0 38px 38px; }
+
+  .book-top{ display:flex; justify-content:space-between; align-items:flex-start; gap: 12px; }
+  .status-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.65rem;
+    letter-spacing:0.06em; text-transform:uppercase;
+    padding: 4px 8px; border: 1px solid var(--ink-soft); color: var(--ink-soft);
+    white-space:nowrap;
+  }
+  .status-tag.live{ border-color: var(--teal); color: var(--teal-deep); }
+
+  .book-card h3{ font-size:1.3rem; line-height:1.25; }
+  .book-card .theme{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.08em; text-transform:uppercase; color: var(--accent, var(--teal));
+  }
+  .book-card p{ color: var(--ink-soft); font-size:0.95rem; margin:0; }
+  .book-foot{
+    margin-top:auto; display:flex; align-items:center; justify-content:space-between;
+    padding-top: 14px; border-top: 1px dashed var(--taupe);
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+  }
+  .book-foot a{ text-decoration:none; border-bottom:1px solid currentColor; }
+
+  .book-card.tum{ --accent: var(--ochre); }
+  .book-card.nuvola{ --accent: var(--dust-blue); }
+  .book-card.nico{ --accent: var(--rose); }
+  .book-card.nonno{ --accent: var(--sage); }
+
+  /* ---------- TIKTOK ---------- */
+  .tiktok-card{
+    display:flex; align-items:center; gap: 22px;
+    background: var(--teal); color: var(--paper);
+    padding: 30px 32px;
+    border-radius: var(--radius);
+  }
+  .tiktok-card svg{ flex:none; width:40px; height:40px; }
+  .tiktok-card .handle{ font-family:'IBM Plex Mono', monospace; opacity:0.85; font-size:0.85rem; }
+  .tiktok-card h3{ font-size:1.2rem; margin-bottom:4px; color: var(--paper); }
+  .tiktok-card .btn{ margin-left:auto; background: var(--paper); color: var(--teal-deep); border-color:var(--paper); }
+  .tiktok-card .btn:hover{ background: transparent; color: var(--paper); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--ink); color: var(--paper);
+    padding: 46px 0 30px;
+  }
+  footer .wrap{
+    display:grid; grid-template-columns: 1.2fr 1fr; gap: 32px;
+  }
+  footer h3{ color: var(--paper); font-size:1.1rem; margin-bottom:10px; }
+  footer p{ color: #C7C0B2; font-size:0.92rem; max-width: 42ch; }
+  footer a{ text-decoration:underline; text-underline-offset:3px; }
+  .footer-bottom{
+    margin-top: 34px; padding-top: 18px; border-top: 1px solid #4A443A;
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:#8A8474;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width: 760px){
+    .hero{ grid-template-columns:1fr; padding-top:48px; }
+    .hero-art{ order:-1; max-width: 220px; margin:0 auto; }
+    .about{ grid-template-columns:1fr; }
+    .about-mark{ font-size:3.2rem; }
+    .books-grid{ grid-template-columns:1fr; }
+    nav ul{ gap:16px; }
+    footer .wrap{ grid-template-columns:1fr; }
+    .tiktok-card{ flex-wrap:wrap; }
+    .tiktok-card .btn{ margin-left:0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .book-card, .btn{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="wordmark">storie<span>da</span>sfogliare</div>
+    <ul>
+      <li><a href="#chi-sono">Chi sono</a></li>
+      <li><a href="#libri">Gli albi</a></li>
+      <li><a href="#tiktok">TikTok</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <div>
+    <span class="eyebrow">Albi illustrati · 4–8 anni</span>
+    <h1>Storie che si aprono come una finestra, non come una spiegazione.</h1>
+    <p class="lede">Un nonno che non c'è più, una stanza che si accende, un respiro che torna: albi scritti per i bambini e letti bene anche dai grandi.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#libri">Sfoglia gli albi</a>
+      <a class="btn ghost" href="#chi-sono">Chi scrive queste storie</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#33503F" stroke-width="1.4" fill="none" opacity="0.85">
+        <path d="M60 40 C 40 120, 40 220, 60 300" />
+        <path d="M75 34 C 55 118, 55 222, 75 306" />
+        <path d="M90 30 C 70 116, 70 224, 90 310" />
+        <path d="M105 28 C 85 115, 85 225, 105 312" />
+        <path d="M120 27 C 100 114, 100 226, 120 313" />
+        <path d="M135 27 C 115 114, 115 226, 135 313" />
+        <path d="M150 28 C 130 115, 130 225, 150 312" />
+        <path d="M165 30 C 145 116, 145 224, 165 310" />
+        <path d="M180 34 C 160 118, 160 222, 180 306" />
+        <path d="M195 40 C 175 120, 175 220, 195 300" />
+      </g>
+      <circle cx="128" cy="170" r="4.5" fill="#B9832F"/>
+    </svg>
+  </div>
+</section>
+
+<div class="fan-divider" aria-hidden="true">
+  <svg class="fan" viewBox="0 0 1200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="12" x2="1200" y2="12" stroke="#C9BFA8" stroke-width="1"/>
+    <g stroke="#C9BFA8" stroke-width="1">
+      <line x1="0" y1="6" x2="0" y2="18"/><line x1="60" y1="6" x2="60" y2="18"/>
+      <line x1="120" y1="6" x2="120" y2="18"/><line x1="180" y1="6" x2="180" y2="18"/>
+      <line x1="240" y1="6" x2="240" y2="18"/><line x1="300" y1="6" x2="300" y2="18"/>
+      <line x1="360" y1="6" x2="360" y2="18"/><line x1="420" y1="6" x2="420" y2="18"/>
+      <line x1="480" y1="6" x2="480" y2="18"/><line x1="540" y1="6" x2="540" y2="18"/>
+      <line x1="600" y1="6" x2="600" y2="18"/><line x1="660" y1="6" x2="660" y2="18"/>
+      <line x1="720" y1="6" x2="720" y2="18"/><line x1="780" y1="6" x2="780" y2="18"/>
+      <line x1="840" y1="6" x2="840" y2="18"/><line x1="900" y1="6" x2="900" y2="18"/>
+      <line x1="960" y1="6" x2="960" y2="18"/><line x1="1020" y1="6" x2="1020" y2="18"/>
+      <line x1="1080" y1="6" x2="1080" y2="18"/><line x1="1140" y1="6" x2="1140" y2="18"/>
+      <line x1="1200" y1="6" x2="1200" y2="18"/>
+    </g>
+  </svg>
+</div>
+
+<section id="chi-sono" class="wrap about">
+  <div class="about-mark">“</div>
+  <div>
+    <span class="eyebrow">Chi scrive</span>
+    <h2>Cristiana Filipponi</h2>
+    <p>Scrive da sempre di ciò che sta sotto le cose: la psicologia dentro una notizia, il verso dentro un fatto di cronaca. Giornalista per <em>Jesi e la sua valle</em> e <em>QDM Notizie</em>, cura la rubrica <em>Ieri, oggi e domani</em>. È autrice di tre raccolte di poesia e lavora a un romanzo psicologico semi-autobiografico.</p>
+    <p>Da qualche tempo scrive anche per i più piccoli — albi che non addolciscono le domande difficili: le rendono soltanto più leggere da portare.</p>
+    <blockquote>Ai bambini non si nascondono le cose grandi. Gli si dà solo la mano mentre le guardano.</blockquote>
+  </div>
+</section>
+
+<div class="fan-divider" aria-hidden="true">
+  <svg class="fan" viewBox="0 0 1200 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="12" x2="1200" y2="12" stroke="#C9BFA8" stroke-width="1"/>
+  </svg>
+</div>
+
+<section id="libri" class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Gli albi</span>
+    <h2>Quattro storie, quattro modi di dire una cosa vera</h2>
+  </div>
+  <div class="books-grid">
+
+    <article class="book-card tum">
+      <div class="book-top">
+        <span class="theme">Fare spazio</span>
+        <span class="status-tag live">Disponibile</span>
+      </div>
+      <h3>Tum… c'è posto per tutti</h3>
+      <p>Una storia su cosa vuol dire fare spazio a chi arriva, senza escludere nessuno. Il primo albo pubblicato di Cristiana.</p>
+      <div class="book-foot">
+        <span>4–8 anni</span>
+        <a href="#" target="_blank" rel="noopener">Guarda su Amazon →</a>
+      </div>
+    </article>
+
+    <article class="book-card nuvola">
+      <div class="book-top">
+        <span class="theme">Respiro</span>
+        <span class="status-tag">In lavorazione</span>
+      </div>
+      <h3>Il respiro di Nuvola</h3>
+      <p>Nuvola impara ad ascoltare il proprio ritmo, invece di rincorrere quello degli altri.</p>
+      <div class="book-foot">
+        <span>4–8 anni</span>
+        <a href="#" target="_blank" rel="noopener">Guarda su Amazon →</a>
+      </div>
+    </article>
+
+    <article class="book-card nico">
+      <div class="book-top">
+        <span class="theme">Coraggio</span>
+        <span class="status-tag">In lavorazione</span>
+      </div>
+      <h3>Nico e la stanza che si accende</h3>
+      <p>Una stanza che si accende solo quando Nico trova il coraggio di restarci dentro.</p>
+      <div class="book-foot">
+        <span>4–8 anni</span>
+        <a href="#" target="_blank" rel="noopener">Guarda su Amazon →</a>
+      </div>
+    </article>
+
+    <article class="book-card nonno">
+      <div class="book-top">
+        <span class="theme">Memoria</span>
+        <span class="status-tag">In lavorazione</span>
+      </div>
+      <h3>Dov'è andato il nonno?</h3>
+      <p>Un albo per accompagnare i bambini nella perdita di un nonno, senza nasconderla e senza spaventarli.</p>
+      <div class="book-foot">
+        <span>4–8 anni</span>
+        <a href="#" target="_blank" rel="noopener">Guarda su Amazon →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="tiktok" class="wrap">
+  <div class="tiktok-card">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.5 2h-3.2v13.6a2.8 2.8 0 1 1-2-2.68V9.7a6 6 0 1 0 5.2 5.94V9.1a7.7 7.7 0 0 0 4.7 1.6V7.5a4.5 4.5 0 0 1-4.7-4.6V2Z" fill="#EDE7DA"/>
+    </svg>
+    <div>
+      <h3>Le storie prendono forma anche in video</h3>
+      <div class="handle">@storiedasfogliare</div>
+    </div>
+    <a class="btn" href="https://www.tiktok.com/@storiedasfogliare" target="_blank" rel="noopener">Segui su TikTok</a>
+  </div>
+</section>
+
+<footer id="contatti">
+  <div class="wrap">
+    <div>
+      <h3>Scuole, insegnanti, editori, illustratori</h3>
+      <p>Per letture in classe, laboratori con bambini, collaborazioni editoriali o richieste stampa: scrivi a <a href="mailto:info@storiedasfogliare.it">info@storiedasfogliare.it</a> — sostituisci con il tuo indirizzo reale.</p>
+    </div>
+    <div>
+      <h3>Dove trovarmi</h3>
+      <p><a href="https://www.tiktok.com/@storiedasfogliare" target="_blank" rel="noopener">TikTok — @storiedasfogliare</a><br>
+      Articoli su <em>Jesi e la sua valle</em> e <em>QDM Notizie</em></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span id="year"></span> Cristiana Filipponi</span>
+    <span>Jesi, Vallesina — Marche</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
